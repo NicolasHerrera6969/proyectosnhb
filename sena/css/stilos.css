@@ -1,0 +1,83 @@
+  body {
+    color: #ffffff; 
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    background: linear-gradient(to bottom, #000000, #000136);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+}
+h5 {
+    color: #00ff00; 
+    font-family: Tahoma;
+  }
+
+h4 {
+    color: #00ff00; 
+    font-family: cursive;
+  }
+
+h3 {
+    color: #00ff00; 
+    font-family: cursive;
+  }
+
+h2 {
+    color: #00ff00; 
+    font-family: cursive;
+  }
+  
+  h1 {
+    color: #00ff00; 
+    font-family: cursive;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+
+  
+  img {
+    border: 5px solid #01360e00;
+    border-radius: 8px; 
+    padding: 5px;
+    box-sizing: border-box; 
+    transition: background-color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  }
+
+  img:hover {
+    background-color: #00ff22;
+  }
+
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100px; 
+  }
+
+  .contenedor {
+    display: inline-block; /* Ajusta el tamaño al contenido */
+    padding: 10px; /* Espaciado interno del contenedor */
+    background-color: #00ff8000; /* Color de fondo del contenedor */
+    border: 2px solid #00ff8000; /* Borde del contenedor */
+    border-radius: 8px; /* Esquinas redondeadas */
+    transition: background-color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  }
+
+  .contenedor:hover {
+    background-color: #00ff4c; /* Cambia el color de fondo al pasar el mouse */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+  }
+
+  a {
+    color: #00ff80;
+    text-decoration: none;
+  }

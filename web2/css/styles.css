@@ -1,0 +1,431 @@
+.body_index {
+    background: 
+        url('../img/mask.webp') no-repeat center center fixed, /* Imagen de fondo */
+        linear-gradient(45deg, #222222, #000000, #222222); /* Gradiente de fondo */
+    background-size: cover, 600% 600%; /* Tamaño de la imagen y del gradiente */
+    scrollbar-color: red lightblue;
+    margin: 0;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    color: rgb(255, 255, 255);
+    animation: gradientAnimation 60s ease infinite;
+    display: flex; /* Asegura que align-items funcione */
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column; /* Colocar elementos en columna */
+}
+
+/* Animación del gradiente */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }   
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.body_v1 {
+    scrollbar-color: red lightblue;
+    margin: 0;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(45deg, #362500, #000000, #362500);
+    background-size: 600% 600%;
+    animation: gradientAnimation 10s ease infinite;
+    align-items: center;
+}
+
+/* Animación del gradiente */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 500%;
+    }   
+    50% {
+        background-position: 100% 500%;
+    }
+    100% {
+        background-position: 0% 500%;
+    }
+}
+
+.body_v2 {
+    scrollbar-color: red lightblue;
+    margin: 0;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(45deg, #302f00, #000000, #002b20);
+    background-size: 600% 600%;
+    animation: gradientAnimation 10s ease infinite;
+    align-items: center;
+}
+
+/* Animación del gradiente */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 500%;
+    }   
+    50% {
+        background-position: 100% 500%;
+    }
+    100% {
+        background-position: 0% 500%;
+    }
+}
+
+.body_v3 {
+    scrollbar-color: red lightblue;
+    margin: 0;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(45deg, #090142, #000000, #02001b);
+    background-size: 600% 600%;
+    animation: gradientAnimation 10s ease infinite;
+    align-items: center;
+}
+
+/* Animación del gradiente */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 500%;
+    }   
+    50% {
+        background-position: 100% 500%;
+    }
+    100% {
+        background-position: 0% 500%;
+    }
+}
+
+/* ARRIBA SON TODOS LOS GRADIANTES/FONDOS */
+
+h1 {
+    font-size: 4rem;
+    color: snow;
+}
+
+.blkbox {
+    flex: 1;
+    margin: 5%;
+    background-color: #000000;
+    border: 5px solid rgb(243, 233, 233);
+    padding: 20px;
+    animation: blkbox 4s infinite;
+    border-radius: 10px;
+}
+
+@keyframes blkbox {
+    0% {
+        border-color: #ffffff; /* Color blanco al inicio */
+    }
+    50% {
+        border-color: #000000; /* Color negro en la mitad de la animación */
+    }
+    100% {
+        border-color: #ffffff; /* Regresa al color blanco al final */
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se alineen en columna si es necesario */
+    flex-grow: 1;
+
+}
+
+.text {
+    padding: 20px;
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 1px;
+}
+
+/* OPCIONES DE IMAGEN Y CONTENEDOR DE IMAGEN */
+
+.image-container {
+    display: inline-block; /* Ajusta el tamaño del contenedor al tamaño de la imagen */
+    width: 50%;           /* Ancho del contenedor en vista del ancho de la ventana */
+    height: 50%;          /* Alto del contenedor en vista del alto de la ventana */
+    border: 5px solid;    /* Ancho del borde */
+    border-color: #ffffff; /* Color inicial del borde */
+    animation: borderColorChange 5s infinite; /* Aplica la animación */
+    border-radius: 10px;  /* Opcional: redondea los bordes */
+    overflow: hidden;     /* Oculta cualquier contenido que sobresalga del contenedor */
+    /* AQUI ESTA EDITAO */
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 20px;
+}
+
+.image-container img {
+    width: 100%;           /* Ajusta el ancho de la imagen al 100% del contenedor */
+    height: 100%;          /* Ajusta el alto de la imagen al 100% del contenedor */
+    object-fit: cover;     /* Asegura que la imagen cubra todo el contenedor sin distorsionarse */
+}
+
+@keyframes borderColorChange {
+    0% {
+        border-color: #ffffff; /* Color blanco al inicio */
+    }
+    50% {
+        border-color: #000000; /* Color negro en la mitad de la animación */
+    }
+    100% {
+        border-color: #ffffff; /* Regresa al color blanco al final */
+    }
+}
+
+/* iba a hacer una anim de typeado pero no salio :( */
+.typing-container { 
+    max-width: 600px; 
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent; /* Oculta el cursor */
+    }
+    50% {
+        border-color: black; /* Muestra el cursor a mitad de la animación */
+    }
+}
+
+@keyframes borderColorChange {
+    0% {
+        border-color: #ffffff; /* Color blanco al inicio */
+    }
+    50% {
+        border-color: #000000; /* Color negro en la mitad de la animación */
+    }
+    100% {
+        border-color: #ffffff; /* Regresa al color blanco al final */
+    }
+}
+
+/* Estilo de los botones */
+button, input[type="button"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #000000;
+    border: 5px solid; /* Aplica un borde alrededor del botón */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    animation: borderColorChange 5s infinite; /* Aplica la animación de borde */
+    /*DATOS DE FUENTE ORBITRON*/
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    margin-bottom: 10px; /* Añade espaciado entre botones */
+}
+
+/* Efecto hover para el botón */
+button:hover, input[type="button"]:hover {
+    background-color: #272727; /* Cambia el color de fondo al pasar el ratón */
+}
+
+article {
+    display: flex; /* Usa flexbox para alinear los botones horizontalmente */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px; /* Espacio entre los botones */
+}
+
+h3 {
+    display: inline-block; /* Hace que los h3 se alineen horizontalmente */
+    margin: 0 10px 0 0; /* Espaciado entre botones */
+    font-size: larger;
+    font-family: 'Times New Roman';
+}
+
+/*BARRA DE DESLIZAMIENTO*/
+
+::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra de desplazamiento */
+    height: 12px; /* Alto de la barra de desplazamiento horizontal */
+}
+
+/* Personaliza el fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+    background: #1b1b1b; /* Color del fondo */
+    border-radius: 10px; /* Redondea las esquinas del fondo */
+}
+
+/* Personaliza el "thumb" de la barra de desplazamiento (la parte que se mueve) */
+::-webkit-scrollbar-thumb {
+    background: #555; /* Color del thumb */
+    border-radius: 10px; /* Redondea las esquinas del thumb */
+    border: 3px solid #1b1b1b; /* Añade un borde al thumb */
+}
+
+/* Cambia el color del thumb al pasar el cursor */
+::-webkit-scrollbar-thumb:hover {
+    background: #888; /* Color del thumb al pasar el cursor */
+}
+
+/* Cambia el color del thumb al ser activado (clic) */
+::-webkit-scrollbar-thumb:active {
+    background: #aaa; /* Color del thumb al ser activado */
+}
+
+/* FUENTE DE GOOGLE */
+
+.pt-serif-regular {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 1px;
+}
+
+.pt-serif-bold {
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.pt-serif-regular-italic {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.pt-serif-bold-italic {
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.orbitron {
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Estilos básicos para el reproductor de música */
+.audio-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    gap: 10px; /* Espaciado entre elementos del reproductor */
+}
+
+audio {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+/* REPRODUCTOR */
+
+.audio-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.audio-player audio {
+    display: none; /* Oculta el reproductor predeterminado */
+}
+
+.audio-player .progress-container {
+    width: 100%;
+    max-width: 600px;
+    height: 10px;
+    background: #dddddd00;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.audio-player .progress-bar {
+    width: 0;
+    height: 100%;
+    background: #ffffff48;
+    position: absolute;
+}
+
+.audio-player .time-display {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* FOOTER */
+
+.footer {
+    width: 100%; /* Asegura que el footer ocupe todo el ancho */
+    color: #bbb; /* Color del texto del footer */
+    padding: 20px 0; /* Espaciado interno */
+    position: relative; /* Posicionamiento relativo para manejar elementos internos */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-image img {
+    width: 150px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-image {
+        margin-top: 20px;
+    }
+}

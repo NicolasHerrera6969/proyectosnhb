@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- GOOGLE FONT -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V1</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="body_v1">
+    <div class="container">
+        <div class="blkbox orbitron">
+            <h1><center>VULTURES 1</center></h1>
+        </div>
+        <article>
+            <button onclick="location.href='../html/index.html'">Inicio</button>
+            <button onclick="location.href='../html/v2.html'">VULTURES 2</button>
+            <button onclick="location.href='../html/v3.html'">VULTURES 3</button>
+        </article>
+        <div class="text">
+            <p>Disfruta de la lista de canciones de VULTURES 1:</p>
+        </div>
+    </div>
+    <center>
+        <div class="image-container">
+            <div class="orbitron" id="song-title" style="position: absolute; color: white; font-size: 24px; padding: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">
+                STARS
+            </div>
+            <img src="../img/vutures1.png" alt="Vultures">
+        </div>
+    </center>
+    <!-- REPRODUCTOR -->
+    <div class="audio-player">
+        <select id="playlist" onchange="changeSong()">
+            <option value="../audio/v1/01 Stars.mp3">STARS</option>
+            <option value="../audio/v1/02 Keys To My Life.mp3">KEYS TO MY LIFE</option>
+            <option value="../audio/v1/03 Paid.mp3">PAID</option>
+            <option value="../audio/v1/04 Talking _ Once Again.mp3">TALKIN/ONCE AGAIN</option>
+            <option value="../audio/v1/05 Back To Me.mp3">BACK TO ME</option>
+            <option value="../audio/v1/06 Hoodrat.mp3">HOODRAT</option>
+            <option value="../audio/v1/07 Do It.mp3">DO IT</option>
+            <option value="../audio/v1/08 Paperwork.mp3">PAPERWORK</option>
+            <option value="../audio/v1/09 Burn.mp3">BURN</option>
+            <option value="../audio/v1/10 Fuk Sumn.mp3">FUK SUMN</option>
+            <option value="../audio/v1/11 Vultures.mp3">VULTURES</option>
+            <option value="../audio/v1/12 Carnival.mp3">CARNIVAL</option>
+            <option value="../audio/v1/13 Beg Forgiveness.mp3">BEG FORGIVENES</option>
+            <option value="../audio/v1/14 Good (Don't Die).mp3">GOOD (DONT DIE)</option>
+            <option value="../audio/v1/15 Problematic.mp3">PROBLEMATIC</option>
+            <option value="../audio/v1/16 King.mp3">KING</option>
+        </select>
+
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="time-display">
+            <span id="current-time">0:00</span>
+            <span id="duration">0:00</span>
+        </div>
+
+        <audio id="audio" controls>
+            <source src="../audio/v1/01 Stars.mp3" type="audio/mp3">
+            Tu navegador no soporta la reproducción de audio.
+        </audio>
+
+        <button onclick="playAudio()">Reproducir</button>
+        <button onclick="pauseAudio()">Pausar</button>
+        <button onclick="stopAudio()">Detener</button>
+    </div>
+
+    <script>
+        const audio = document.getElementById('audio');
+        const playlist = document.getElementById('playlist');
+        const songTitle = document.getElementById('song-title');
+        const progressBar = document.querySelector('.progress-bar');
+        const currentTimeDisplay = document.getElementById('current-time');
+        const durationDisplay = document.getElementById('duration');
+
+        audio.addEventListener('ended', playNextSong);
+        audio.addEventListener('timeupdate', updateProgress);
+        audio.addEventListener('loadedmetadata', updateDuration);
+
+        function changeSong() {
+            const selectedSong = playlist.value;
+            audio.src = selectedSong;
+            audio.play();
+            updateSongTitle();
+        }
+
+        function playNextSong() {
+            const currentIndex = playlist.selectedIndex;
+            const nextIndex = (currentIndex + 1) % playlist.options.length;
+            playlist.selectedIndex = nextIndex;
+            audio.src = playlist.options[nextIndex].value;
+            audio.play();
+            updateSongTitle();
+        }
+
+        function playAudio() {
+            audio.play();
+        }
+
+        function pauseAudio() {
+            audio.pause();
+        }
+
+        function stopAudio() {
+            audio.pause();
+            audio.currentTime = 0;
+            updateProgress();
+        }
+
+        function updateSongTitle() {
+            // Actualiza el título de la canción
+            const selectedOption = playlist.options[playlist.selectedIndex];
+            songTitle.textContent = selectedOption.text;
+        }
+
+        function updateProgress() {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = progress + '%';
+            currentTimeDisplay.textContent = formatTime(audio.currentTime);
+        }
+
+        function updateDuration() {
+            durationDisplay.textContent = formatTime(audio.duration);
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        // Actualizar el título de la canción al cargar la página
+        window.onload = updateSongTitle;
+    </script>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <ul>
+                    <li><a href="https://vultures.yeezy.com/" target="_blank">OFFICIAL YZY SITE</a></li>
+                    <li><a href="https://www.yews.news/" target="_blank">YZY NEWS</a></li>
+                    <li><a href="mailto:contact@yzy.com">CONTACT US</a></li>
+                    <li><a href="https://vultures.yeezy.com/pages/privacy-requests" target="_blank">DO NOT SELL MY INFO</a></li>
+                </ul>
+            </div>
+            <div class="footer-image">
+                <img src="../img/golden.webp" alt="Logo" />
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

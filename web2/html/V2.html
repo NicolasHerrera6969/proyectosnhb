@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- GOOGLE FONT -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V2</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="body_v2">
+    <div class="container">
+        <div class="blkbox orbitron">
+            <h1><center>VULTURES 2</center></h1>
+        </div>
+        <article>
+            <button onclick="location.href='../html/index.html'">Inicio</button>
+            <button onclick="location.href='../html/v1.html'">VULTURES 1</button>
+            <button onclick="location.href='../html/v3.html'">VULTURES 3</button>
+        </article>
+        <div class="text">
+            <p>Disfruta de la lista de canciones de VULTURES 2 (Se incluyen canciones de la versión deluxe):</p>
+        </div>
+    </div>
+    <center>
+        <div class="image-container">
+            <!-- Contenedor del título de la canción -->
+            <div class="orbitron" id="song-title" style="position: absolute; color: white; font-size: 24px; padding: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">
+                SLIDE
+            </div>
+            <img src="../img/cover.jpg" alt="Vultures">
+        </div>
+    </center>
+    <!-- REPRODUCTOR -->
+    <div class="audio-player">
+        <select id="playlist" onchange="changeSong()">
+            <option value="../audio/v2/1 - SLIDE.mp3">SLIDE</option>
+            <option value="../audio/v2/2 - TIME MOVING SLOW.mp3">TIME MOVING SLOW</option>
+            <option value="../audio/v2/3 - FIELD TRIP.mp3">FIELD TRIP</option>
+            <option value="../audio/v2/4 - FRIED.mp3">FRIED</option>
+            <option value="../audio/v2/5 - WORSHIP.mp3">WORSHIP</option>
+            <option value="../audio/v2/6 - PROMOTION.mp3">PROMOTION</option>
+            <option value="../audio/v2/7 - MATTHEW.mp3">MATHEW</option>
+            <option value="../audio/v2/8 - LIFESTYLE.mp3">LIFESTYLE</option>
+            <option value="../audio/v2/9 - GUN TO MY HEAD.mp3">GUN TO MY HEAD</option>
+            <option value="../audio/v2/10 - SO CALLED FRIENDS.mp3">SO CALLED FRIENDS</option>
+            <option value="../audio/v2/11 - RIVER.mp3">RIVER</option>
+            <option value="../audio/v2/12 - DEAD.mp3">DEAD</option>
+            <option value="../audio/v2/13 - FOREVER ROLLING.mp3">FOREVER ROLLING</option>
+            <option value="../audio/v2/14 - SKY CITY.mp3">SKY CITY</option>
+            <option value="../audio/v2/15 - MY SOUL.mp3">MY SOUL</option>
+            <option value="../audio/v2/16 CAN U BE - $, Kanye West, Ty Dolla $ign (ft.Travis Scott).mp3">CAN U BE</option>
+            <option value="../audio/v2/17 GUN TO MY HEAD.mp3">GUN TO MY HEAD</option>
+            <option value="../audio/v2/18-believer.mp3">BELIEVER</option>
+            <option value="../audio/v2/19-drunk.mp3">DRUNK</option>
+            <option value="../audio/v2/20 - TAKE OFF YOUR DRESS - ¥__ Kanye West_ Ty Dolla _ign(MP3_160K).mp3">TAKE OFF YOUR DRESS</option>
+        </select>
+
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="time-display">
+            <span id="current-time">0:00</span>
+            <span id="duration">0:00</span>
+        </div>
+
+        <audio id="audio" controls>
+            <source src="../audio/v2/1 - SLIDE.mp3" type="audio/mp3">
+            Tu navegador no soporta la reproducción de audio.
+        </audio>
+
+        <button onclick="playAudio()">Reproducir</button>
+        <button onclick="pauseAudio()">Pausar</button>
+        <button onclick="stopAudio()">Detener</button>
+    </div>
+
+    <script>
+        const audio = document.getElementById('audio');
+        const playlist = document.getElementById('playlist');
+        const songTitle = document.getElementById('song-title');
+        const progressBar = document.querySelector('.progress-bar');
+        const currentTimeDisplay = document.getElementById('current-time');
+        const durationDisplay = document.getElementById('duration');
+
+        audio.addEventListener('ended', playNextSong);
+        audio.addEventListener('timeupdate', updateProgress);
+        audio.addEventListener('loadedmetadata', updateDuration);
+
+        function changeSong() {
+            const selectedSong = playlist.value;
+            audio.src = selectedSong;
+            audio.play();
+            updateSongTitle();
+        }
+
+        function playNextSong() {
+            const currentIndex = playlist.selectedIndex;
+            const nextIndex = (currentIndex + 1) % playlist.options.length;
+            playlist.selectedIndex = nextIndex;
+            audio.src = playlist.options[nextIndex].value;
+            audio.play();
+            updateSongTitle();
+        }
+
+        function playAudio() {
+            audio.play();
+        }
+
+        function pauseAudio() {
+            audio.pause();
+        }
+
+        function stopAudio() {
+            audio.pause();
+            audio.currentTime = 0;
+            updateProgress();
+        }
+
+        function updateSongTitle() {
+            // Actualiza el título de la canción
+            const selectedOption = playlist.options[playlist.selectedIndex];
+            songTitle.textContent = selectedOption.text;
+        }
+
+        function updateProgress() {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = progress + '%';
+            currentTimeDisplay.textContent = formatTime(audio.currentTime);
+        }
+
+        function updateDuration() {
+            durationDisplay.textContent = formatTime(audio.duration);
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        // Actualizar el título de la canción al cargar la página
+        window.onload = updateSongTitle;
+    </script>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <ul>
+                    <li><a href="https://vultures.yeezy.com/" target="_blank">OFFICIAL YZY SITE</a></li>
+                    <li><a href="https://www.yews.news/" target="_blank">YZY NEWS</a></li>
+                    <li><a href="mailto:contact@yzy.com">CONTACT US</a></li>
+                    <li><a href="https://vultures.yeezy.com/pages/privacy-requests" target="_blank">DO NOT SELL MY INFO</a></li>
+                </ul>
+            </div>
+            <div class="footer-image">
+                <img src="../img/golden.webp" alt="Logo" />
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

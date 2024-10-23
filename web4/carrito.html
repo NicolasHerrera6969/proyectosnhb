@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Fino Moda</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Fino Moda</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="cart">
+            <div class="container">
+                <h1>Tu Carrito</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Ejemplo de producto en el carrito -->
+                        <tr>
+                            <td>Traje Negro</td>
+                            <td>$120.000</td>
+                            <td>
+                                <input type="number" name="quantity" min="1" max="10" value="1">
+                            </td>
+                            <td>$120.000</td>
+                            <td><button class="btn-secondary">Eliminar</button></td>
+                        </tr>
+                        <!-- Puedes añadir más productos aquí -->
+                    </tbody>
+                </table>
+                <div class="cart-summary">
+                    <p>Total: <span id="cart-total">$120.000</span></p>
+                    <a href="index.html" class="btn-primary">Proceder al Pago</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Fino Moda. Todos los derechos reservados.</p>
+            <nav>
+                <ul>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,382 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #cacaca;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Estilos del encabezado */
+header {
+    background: #333;
+    color: #fff;
+    padding: 3rem 0;
+}
+
+header h1 {
+    float: left;
+    margin-left: 1rem;
+}
+
+nav ul {
+    float: right;
+    margin-right: 1rem;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+/* Transición suave para los elementos del menú */
+nav ul li a {
+    font-family: "Cinzel", system-ui;
+    color: #fff; /* Color inicial */
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Transición suave */
+}
+
+/* Efecto hover: cambio de color */
+nav ul li a:hover {
+    color: #ffcc00; /* Color del texto al hacer hover */
+}
+
+/* Estilos del hero */
+.hero {
+    background: #adadad;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    background: #333;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Estilos de los productos */
+.products {
+    padding: 2rem 0;
+}
+
+.products .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.product-card {
+    background: #adadad;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.product-card h3 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.product-card p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.btn-secondary {
+    background: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+/* Estilos del carrito */
+.cart-preview {
+    background: #adadad;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.cart-preview h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cart-preview p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.cart-preview .btn-primary {
+    margin-top: 1rem;
+}
+
+/* Estilos del pie de página */
+footer {
+    background: #333;
+    color: #fff;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+footer nav ul {
+    display: inline-flex;
+    list-style: none;
+    padding: 0;
+}
+
+footer nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+h3 {
+    font-family: "Josefin Slab", serif;
+}
+h2 {
+    font-family: "Cinzel", system-ui;
+}
+h1 {
+    font-weight: 800;
+    font-family: "EB Garamond", system-ui;
+}
+p {
+    font-family: "Cinzel", system-ui;
+    font-size: 50%;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Centrado del contenido */
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 80vh;
+}
+
+/* Ajuste de la sección del producto */
+.product-container {
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Estilo para las imágenes del producto */
+.product-container img {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px 0;
+    border-radius: 7px;
+}
+
+/* Ajuste para precio y descripción */
+.product-price {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.product-description {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+/* Ocultar todas las secciones por defecto */
+.product-detail {
+    display: none;
+}
+
+/* Mostrar la sección correspondiente según el fragmento en la URL */
+#product1:target, #product2:target#product1:target, #product2:target, #product3:target, #product4:target, #product5:target, #product6:target, #product7:target, #product8:target, #product9:target, #product10:target, #product11:target, #product12:target, #product13:target, #product14:target, #product15:target, #product16:target, #product17:target {
+    display: block;
+}
+
+/* Estilos para la página del carrito */
+.cart {
+    padding: 2rem 0;
+    background: #f4f4f4;
+}
+
+.cart table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    border-radius: 7px;
+}
+
+.cart table th, .cart table td {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.cart table th {
+    background: #333;
+    color: #fff;
+}
+
+.cart table td {
+    background: #fff;
+}
+
+.cart-summary {
+    text-align: right;
+    border-radius: 7px;
+}
+
+.cart-summary p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.cart-summary .btn-primary {
+    margin-top: 1rem;
+}
+/* Estilos para la página "Nosotros" */
+.about-us {
+    padding: 2rem 0;
+    background: #f4f4f4;
+}
+
+.about-us h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-us p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.team-member {
+    flex: 1;
+    min-width: 250px;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.team-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.team-member h3 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.team-member p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Estilos para la página de contacto */
+.contact {
+    padding: 2rem 0;
+    background: #f4f4f4;
+}
+
+.contact h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info, .contact-form {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info h2, .contact-form h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    margin-top: 1rem;
+}
+
